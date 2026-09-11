@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/ShopManagement/" />
+  <Folder Name="/ShopManagement/ShopManagement.Application/">
+    <Project Path="ShopManagement.Application.Contract/ShopManagement.Application.Contract.csproj" Id="739373fc-5f8c-43c9-93d8-a54ebf6a627c" />
+    <Project Path="ShopManagement.Application/ShopManagement.Application.csproj" Id="e726d409-c72f-477e-aefc-038f244cf0a2" />
+  </Folder>
   <Folder Name="/ShopManagement/ShopManagement.Domain/">
     <Project Path="ShopManagement.Domain/ShopManagement.Domain.csproj" />
   </Folder>

@@ -1,1 +1,7 @@
-<Solution />
+<Solution>
+  <Folder Name="/ShopManagement/" />
+  <Folder Name="/ShopManagement/ShopManagement.Domain/">
+    <Project Path="ShopManagement.Domain/ShopManagement.Domain.csproj" />
+  </Folder>
+  <Project Path="0_Framework/0_Framework.csproj" />
+</Solution>

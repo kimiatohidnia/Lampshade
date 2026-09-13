@@ -8,7 +8,7 @@ using ShopManagement.Infrastructure.EFCore.Repository;
 
 namespace ShopManagement.Configuration
 {
-    public class ShopmanagementBoostrapper
+    public class ShopManagementBootstrapper
     {
         public static void Configure(IServiceCollection services, string connectionString)
         {

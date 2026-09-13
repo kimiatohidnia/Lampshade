@@ -12,4 +12,5 @@
     <Project Path="ShopManagement.Infrastructure.EFCore/ShopManagement.Infrastructure.EFCore.csproj" Id="d9e95bd6-2a9f-4007-804b-6f479d2b4f74" />
   </Folder>
   <Project Path="0_Framework/0_Framework.csproj" />
+  <Project Path="ServiceHost/ServiceHost.csproj" Id="65393819-07c0-4514-b22c-ce62dbbfa8a1" />
 </Solution>

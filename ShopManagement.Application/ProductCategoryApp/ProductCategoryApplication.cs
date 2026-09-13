@@ -35,6 +35,8 @@ namespace ShopManagement.Application.ProductCategoryApp
             );
 
             _repository.Create(category);
+            _repository.SaveChanges();
+
             return operation.Succeeded();
         }
 

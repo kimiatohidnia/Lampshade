@@ -2,11 +2,11 @@
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
-    public class PruductCategoryQuery : IProductCategoryQuery
+    public class ProductCategoryQuery : IProductCategoryQuery
     {
         private readonly ShopContext _context;
 
-        public PruductCategoryQuery(ShopContext context)
+        public ProductCategoryQuery(ShopContext context)
         {
             _context = context;
         }

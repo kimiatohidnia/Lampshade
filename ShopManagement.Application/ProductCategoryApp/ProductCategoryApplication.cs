@@ -41,7 +41,7 @@ namespace ShopManagement.Application.ProductCategoryApp
         public OperationResult Edit(EditProductCategory command)
         {
             var operation = new OperationResult();
-            var category = _repository.GetById(command.Id);
+            var category = _repository.Get(command.Id);
 
             if (category == null)
                 return operation.Failed("رکوردی با این اطلاعات یافت نشد!");

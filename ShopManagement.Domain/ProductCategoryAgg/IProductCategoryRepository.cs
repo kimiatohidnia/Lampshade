@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using ShopManagement.Application.Contract.ProductCategoryApp;
 
 namespace ShopManagement.Domain.ProductCategoryAgg
 {
@@ -10,7 +9,5 @@ namespace ShopManagement.Domain.ProductCategoryAgg
         bool Exists(Expression<Func<ProductCategory, bool>> expression);
         ProductCategory? Get(long id);
         List<ProductCategory> GetAll();
-        EditProductCategory? GetDetails(long id);
-        List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel);
     }
 }

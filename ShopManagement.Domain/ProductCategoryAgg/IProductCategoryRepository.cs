@@ -1,13 +1,8 @@
-﻿using System.Linq.Expressions;
+﻿using _0_Framework.Domain;
 
 namespace ShopManagement.Domain.ProductCategoryAgg
 {
-    public interface IProductCategoryRepository
+    public interface IProductCategoryRepository : IRepository<long, ProductCategory>
     {
-        void Create(ProductCategory entity);
-        void SaveChanges();
-        bool Exists(Expression<Func<ProductCategory, bool>> expression);
-        ProductCategory? Get(long id);
-        List<ProductCategory> GetAll();
     }
 }

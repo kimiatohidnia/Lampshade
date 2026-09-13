@@ -8,6 +8,7 @@
     <Project Path="ShopManagement.Domain/ShopManagement.Domain.csproj" />
   </Folder>
   <Folder Name="/ShopManagement/ShopManagement.Infrastructure/">
+    <Project Path="ShopManagement.Configuration/ShopManagement.Configuration.csproj" Id="62ea2e0a-4dc9-4d30-b2a8-72044ea113d8" />
     <Project Path="ShopManagement.Infrastructure.EFCore/ShopManagement.Infrastructure.EFCore.csproj" Id="d9e95bd6-2a9f-4007-804b-6f479d2b4f74" />
   </Folder>
   <Project Path="0_Framework/0_Framework.csproj" />

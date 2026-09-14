@@ -8,6 +8,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategories
     public class IndexModel : PageModel
     {
         public List<ProductCategoryViewModel> ProductCategories;
+        public ProductCategorySearchModel SearchModel;
         private readonly IProductCategoryApplication _application;
 
         public IndexModel(IProductCategoryApplication application)
@@ -18,6 +19,11 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategories
         public void OnGet(ProductCategorySearchModel searchModel)
         {
             ProductCategories = _application.Search(searchModel);
+        }
+
+        public IActionResult OnGetCreate()
+        {
+            return Partial("./Create", new CreateProductCategory());
         }
     }
 }

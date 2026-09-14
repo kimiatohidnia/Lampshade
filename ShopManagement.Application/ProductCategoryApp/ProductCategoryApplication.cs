@@ -69,5 +69,10 @@ namespace ShopManagement.Application.ProductCategoryApp
 
             return operation.Succeeded();
         }
+
+        public List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel)
+        {
+            
+        }
     }
 }

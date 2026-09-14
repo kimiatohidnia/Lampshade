@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using _0_Framework.Infrastructure;
+﻿using _0_Framework.Infrastructure;
 using ShopManagement.Domain.ProductCategoryAgg;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository

@@ -44,13 +44,13 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             return query.OrderByDescending(x => x.Id).ToList();
         }
 
-        public List<ProductCategoryViewModel> GetProductCategories()
-        {
-            return _context.ProductCategories.Select(x => new ProductCategoryViewModel
-            {
-                Id = x.Id,
-                Name = x.Name
-            }).ToList();
-        }
+        //public List<ProductCategoryViewModel> GetProductCategories()
+        //{
+        //    return _context.ProductCategories.Select(x => new ProductCategoryViewModel
+        //    {
+        //        Id = x.Id,
+        //        Name = x.Name
+        //    }).ToList();
+        //}
     }
 }

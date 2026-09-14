@@ -9,17 +9,15 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategories
     {
         public List<ProductCategoryViewModel> ProductCategories;
         private readonly IProductCategoryApplication _application;
-        private readonly IProductCategoryQuery _query;
 
-        public IndexModel(IProductCategoryApplication application, IProductCategoryQuery query)
+        public IndexModel(IProductCategoryApplication application)
         {
             _application = application;
-            _query = query;
         }
 
         public void OnGet(ProductCategorySearchModel searchModel)
         {
-            ProductCategories = _query.Search(searchModel);
+            ProductCategories = _application.Search(searchModel);
         }
     }
 }

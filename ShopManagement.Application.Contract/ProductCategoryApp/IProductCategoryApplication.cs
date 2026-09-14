@@ -5,7 +5,9 @@ namespace ShopManagement.Application.Contract.ProductCategoryApp
     public interface IProductCategoryApplication
     {
         OperationResult Create(CreateProductCategory command);
-        OperationResult Edit(EditProductCategory  command);
+        OperationResult Edit(EditProductCategory command);
+        EditProductCategory? GetDetails(long id);
         List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel);
+        //List<ProductCategoryViewModel> GetProductCategories();
     }
 }

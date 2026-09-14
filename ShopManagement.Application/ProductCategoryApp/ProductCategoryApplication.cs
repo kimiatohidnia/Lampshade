@@ -7,10 +7,12 @@ namespace ShopManagement.Application.ProductCategoryApp
     public class ProductCategoryApplication : IProductCategoryApplication
     {
         private readonly IProductCategoryRepository _repository;
+        private readonly IProductCategoryQuery _query;
 
-        public ProductCategoryApplication(IProductCategoryRepository repository)
+        public ProductCategoryApplication(IProductCategoryRepository repository, IProductCategoryQuery query)
         {
             _repository = repository;
+            _query = query;
         }
 
         public OperationResult Create(CreateProductCategory command)
@@ -70,9 +72,19 @@ namespace ShopManagement.Application.ProductCategoryApp
             return operation.Succeeded();
         }
 
+        public EditProductCategory? GetDetails(long id)
+        {
+            return _query.GetDetails(id);
+        }
+
         public List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel)
         {
-            
+            return _query.Search(searchModel);
         }
+
+        //public List<ProductCategoryViewModel> GetProductCategories()
+        //{
+            //return _productCategoryRepostory.GetProductCategories();
+        //}
     }
 }

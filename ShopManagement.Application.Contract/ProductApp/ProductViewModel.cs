@@ -10,4 +10,5 @@ public class ProductViewModel
     public long CategoryId { get; set; }
     public string Category { get; set; }
     public string CreationDate { get; set; }
+    public bool IsInStock { get; set; }
 }

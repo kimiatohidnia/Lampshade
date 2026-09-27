@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ShopManagement.Application.Contract.ProductApp;
+﻿using ShopManagement.Application.Contract.ProductApp;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
@@ -59,6 +58,15 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
 
 
             return query.OrderByDescending(x => x.Id).ToList();
+        }
+
+        public List<ProductViewModel> GetProducts()
+        {
+            return _context.Products.Select(x => new ProductViewModel
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
         }
     }
 }

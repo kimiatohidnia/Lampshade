@@ -89,6 +89,11 @@ namespace ShopManagement.Application.ProductApp
             return _query.Search(searchModel);
         }
 
+        public List<ProductViewModel> GetProducts()
+        {
+            return _query.GetProducts();
+        }
+
         public OperationResult InStock(long id)
         {
             var operation = new OperationResult();

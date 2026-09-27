@@ -1,11 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using ShopManagement.Application;
 using ShopManagement.Application.Contract.ProductApp;
 using ShopManagement.Application.Contract.ProductCategoryApp;
+using ShopManagement.Application.Contract.ProductPictureApp;
+using ShopManagement.Application.Contract.SlideApp;
 using ShopManagement.Application.ProductApp;
 using ShopManagement.Application.ProductCategoryApp;
+using ShopManagement.Application.ProductPictureApp;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
+using ShopManagement.Domain.ProductPictureAgg;
+using ShopManagement.Domain.SlideAgg;
 using ShopManagement.Infrastructure.EFCore;
 using ShopManagement.Infrastructure.EFCore.Repository;
 
@@ -22,6 +28,14 @@ namespace ShopManagement.Configuration
             services.AddTransient<IProductApplication, ProductApplication>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductQuery, ProductQuery>();
+
+            services.AddTransient<IProductPictureApplication, ProductPictureApplication>();
+            services.AddTransient<IProductPictureRepository, ProductPictureRepository>();
+            services.AddTransient<IProductPictureQuery, ProductPictureQuery>();
+
+            services.AddTransient<ISlideApplication, SlideApplication>();
+            services.AddTransient<ISlideRepository, SlideRepository>();
+            services.AddTransient<ISlideQuery, SlideQuery>();
 
             services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
         }

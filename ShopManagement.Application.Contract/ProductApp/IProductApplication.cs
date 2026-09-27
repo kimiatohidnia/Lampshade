@@ -11,7 +11,6 @@ namespace ShopManagement.Application.Contract.ProductApp
         OperationResult NotInStock(long id);
         EditProduct? GetDetails(long id);
         List<ProductViewModel> Search(ProductSearchModel searchModel);
-        //ProductViewModel Get(long id);
-        
+        List<ProductViewModel> GetProducts();
     }
 }

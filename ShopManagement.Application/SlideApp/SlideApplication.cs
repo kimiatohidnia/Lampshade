@@ -2,7 +2,7 @@
 using ShopManagement.Application.Contract.SlideApp;
 using ShopManagement.Domain.SlideAgg;
 
-namespace ShopManagement.Application
+namespace ShopManagement.Application.SlideApp
 {
     public class SlideApplication : ISlideApplication
     {
@@ -19,7 +19,7 @@ namespace ShopManagement.Application
         {
             var operation = new OperationResult();
             var slide = new Slide(command.Picture, command.PictureAlt, command.PictureTitle,
-                command.Heading, command.Title, command.Text, command.BtnText);
+                command.Heading, command.Title, command.Text, command.BtnText, command.Link);
 
             _repository.Create(slide);
             _repository.SaveChanges();
@@ -38,7 +38,7 @@ namespace ShopManagement.Application
                 return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             sldie.Edit(command.Picture, command.PictureAlt, command.PictureTitle,
-                command.Heading, command.Title, command.Text, command.BtnText);
+                command.Heading, command.Title, command.Text, command.BtnText, command.Link);
 
             _repository.SaveChanges();
             return operation.Succeeded();

@@ -1,4 +1,5 @@
-﻿using ShopManagement.Application.Contract.ProductCategoryApp;
+﻿using _0_Framework.Application;
+using ShopManagement.Application.Contract.ProductCategoryApp;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
@@ -33,7 +34,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             {
                 Id = x.Id,
                 Name = x.Name,
-                CreationDate = x.CreationDate.ToString(),
+                CreationDate = x.CreationDate.ToFarsi(),
                 Picture = x.Picture
 
             });

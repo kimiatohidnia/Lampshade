@@ -1,4 +1,5 @@
-﻿using ShopManagement.Application.Contract.SlideApp;
+﻿using _0_Framework.Application;
+using ShopManagement.Application.Contract.SlideApp;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
@@ -35,7 +36,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                 Picture = x.Picture,
                 Heading = x.Heading,
                 Title = x.Title,
-                CreationDate = x.CreationDate.ToString(),
+                CreationDate = x.CreationDate.ToFarsi(),
                 IsRemoved = x.IsRemoved
             }).OrderByDescending(x=> x.Id).ToList();
         }

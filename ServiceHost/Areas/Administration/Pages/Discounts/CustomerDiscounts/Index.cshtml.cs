@@ -17,10 +17,10 @@ namespace ServiceHost.Areas.Administration.Pages.Discounts.CustomerDiscounts
         private readonly ICustomerDiscountApplication _customerDiscountApplication;
         private readonly IProductApplication _productApplication;
 
-        public IndexModel(ICustomerDiscountApplication productApplication, IProductApplication categoryApplication)
+        public IndexModel(ICustomerDiscountApplication customerDiscountApplication, IProductApplication productApplication)
         {
-            _customerDiscountApplication = productApplication;
-            _productApplication = categoryApplication;
+            _customerDiscountApplication = customerDiscountApplication;
+            _productApplication = productApplication;
         }
 
         public void OnGet(CustomerDiscountSearchModel searchModel)

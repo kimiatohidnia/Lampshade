@@ -1,4 +1,5 @@
 using DiscountManagement.Configuration;
+using InventoryManagement.Configuration;
 using ShopManagement.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 ShopManagementBootstrapper.Configure(builder.Services, ConnectionString);
 DiscountManagementBootstrapper.Configure(builder.Services, ConnectionString);
+InventoryManagementBootstrapper.Configure(builder.Services, ConnectionString);
 
 var app = builder.Build();
 

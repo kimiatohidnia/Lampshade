@@ -20,7 +20,8 @@
     <Project Path="InventoryManagement.Domain/InventoryManagement.Domain.csproj" Id="9d5a278b-2e31-461f-aae3-42b41431312d" />
   </Folder>
   <Folder Name="/InventoryManagement/InventoryManagement.Infrastructure/">
-    <Project Path="InventoryManagement.Infrastructure/InventoryManagement.Infrastructure.csproj" Id="5c08d64c-df23-4a40-af2a-3d7061f89ca1" />
+    <Project Path="InventoryManagement.Configuration/InventoryManagement.Configuration.csproj" Id="4492e3c4-b07c-4416-83e8-3d24178bdf57" />
+    <Project Path="InventoryManagement.Infrastructure/InventoryManagement.Infrastructure.EFCore.csproj" Id="5c08d64c-df23-4a40-af2a-3d7061f89ca1" />
   </Folder>
   <Folder Name="/ShopManagement/" />
   <Folder Name="/ShopManagement/ShopManagement.Application/">

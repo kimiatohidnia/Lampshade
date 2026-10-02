@@ -28,7 +28,6 @@ namespace ShopManagement.Application.ProductApp
                 (
                     command.Name,
                     command.Code,
-                    command.UnitPrice,
                     command.ShortDescription,
                     command.Description,
                     command.Picture,
@@ -63,7 +62,6 @@ namespace ShopManagement.Application.ProductApp
             (
                 command.Name,
                 command.Code,
-                command.UnitPrice,
                 command.ShortDescription,
                 command.Description,
                 command.Picture,
@@ -92,32 +90,6 @@ namespace ShopManagement.Application.ProductApp
         public List<ProductViewModel> GetProducts()
         {
             return _query.GetProducts();
-        }
-
-        public OperationResult InStock(long id)
-        {
-            var operation = new OperationResult();
-            var product = _repository.Get(id);
-
-            if (product == null)
-                return operation.Failed(ApplicationMessages.RecordNotFound);
-
-            product.InStock();
-            _repository.SaveChanges();
-            return operation.Succeeded();
-        }
-
-        public OperationResult NotInStock(long id)
-        {
-            var operation = new OperationResult();
-            var product = _repository.Get(id);
-
-            if (product == null)
-                return operation.Failed(ApplicationMessages.RecordNotFound);
-
-            product.NotInStock();
-            _repository.SaveChanges();
-            return operation.Succeeded();
         }
     }
 }

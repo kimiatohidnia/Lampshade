@@ -19,7 +19,6 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                 Id = x.Id,
                 Name = x.Name,
                 Code = x.Code,
-                UnitPrice = x.UnitPrice,
                 ShortDescription = x.ShortDescription,
                 Description = x.Description,
                 Picture = x.Picture,
@@ -34,17 +33,15 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
 
         public List<ProductViewModel> Search(ProductSearchModel searchModel)
         {
-            var query = _context.Products/*.Include(x => x.Name)*/
+            var query = _context.Products
                 .Select(x => new ProductViewModel()
                 {
                     Id = x.Id,
                     Name = x.Name,
                     Code = x.Code,
-                    UnitPrice = x.UnitPrice,
                     Category = x.Category.Name,
                     CategoryId = x.CategoryId,
                     Picture = x.Picture,
-                    IsInStock = x.IsInStock,
                     CreationDate = x.CreationDate.ToFarsi()
                 });
 

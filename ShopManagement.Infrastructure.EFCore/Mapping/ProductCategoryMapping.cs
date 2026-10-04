@@ -17,7 +17,7 @@ namespace ShopManagement.Infrastructure.EFCore.Mapping
                 .IsRequired();
 
             builder.Property(x => x.Description)
-                .HasMaxLength(500);
+                .HasMaxLength(1000);
 
             builder.Property(x => x.Picture)
                 .HasMaxLength(1000);
@@ -33,7 +33,7 @@ namespace ShopManagement.Infrastructure.EFCore.Mapping
                 .IsRequired();
 
             builder.Property(x => x.MetaDescription)
-                .HasMaxLength(150)
+                .HasMaxLength(1000)
                 .IsRequired();
 
             builder.Property(x => x.Slug)

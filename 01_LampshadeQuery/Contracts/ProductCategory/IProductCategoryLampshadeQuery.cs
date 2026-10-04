@@ -3,5 +3,6 @@
     public interface IProductCategoryLampshadeQuery
     {
         List<ProductCategoryQueryModel> GetProductCategories();
+        List<ProductCategoryQueryModel> GetProductCategoriesWithProducts();
     }
 }

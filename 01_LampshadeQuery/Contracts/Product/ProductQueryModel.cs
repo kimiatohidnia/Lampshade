@@ -14,5 +14,7 @@
         public string Category { get; set; }
         public bool HasDiscount { get; set; }
         public string DiscountEndDate { get; set; }
+        public string ShortDescription { get; set; }
+        public string CategorySlug { get; set; }
     }
 }

@@ -3,5 +3,6 @@
     public interface IProductLampshadeQuery
     {
         List<ProductQueryModel> GetLatestArrivals();
+        List<ProductQueryModel> Search(string value);
     }
 }

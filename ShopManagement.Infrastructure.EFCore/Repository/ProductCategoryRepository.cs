@@ -11,5 +11,11 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
         {
             _context = context;
         }
+
+        public string? GetSlugById(long id)
+        {
+            return _context.ProductCategories.Select(x => new {x.Id, x.Slug})
+                .FirstOrDefault(x => x.Id == id)?.Slug;
+        }
     }
 }

@@ -8,11 +8,13 @@ namespace ShopManagement.Application.ProductCategoryApp
     {
         private readonly IProductCategoryRepository _repository;
         private readonly IProductCategoryQuery _query;
+        private readonly IFileUploader _fileUploader;
 
-        public ProductCategoryApplication(IProductCategoryRepository repository, IProductCategoryQuery query)
+        public ProductCategoryApplication(IProductCategoryRepository repository, IProductCategoryQuery query, IFileUploader fileUploader)
         {
             _repository = repository;
             _query = query;
+            _fileUploader = fileUploader;
         }
 
         public OperationResult Create(CreateProductCategory command)
@@ -24,11 +26,14 @@ namespace ShopManagement.Application.ProductCategoryApp
 
             var slug = command.Slug.Slugify();
 
+            var picturePath = $"{slug}";
+            var pictureName = _fileUploader.Upload(command.Picture, picturePath);
+
             var category = new ProductCategory
             (
                 command.Name,
                 command.Description,
-                command.Picture,
+                pictureName,
                 command.PictureAlt,
                 command.PictureTitle,
                 command.Keywords,
@@ -55,11 +60,14 @@ namespace ShopManagement.Application.ProductCategoryApp
             
             var slug = command.Slug.Slugify();
 
+            var picturePath = $"{slug}";
+            var pictureName = _fileUploader.Upload(command.Picture, picturePath);
+
             category.Edit
                 (
                     command.Name,
                     command.Description,
-                    command.Picture,
+                    pictureName,
                     command.PictureAlt,
                     command.PictureTitle,
                     command.Keywords,

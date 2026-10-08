@@ -61,7 +61,6 @@ namespace ShopManagement.Infrastructure.EFCore.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Picture")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -124,7 +123,6 @@ namespace ShopManagement.Infrastructure.EFCore.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Picture")
-                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
@@ -163,7 +161,6 @@ namespace ShopManagement.Infrastructure.EFCore.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Picture")
-                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 

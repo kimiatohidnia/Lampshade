@@ -7,7 +7,7 @@ namespace ShopManagement.Domain.ProductCategoryAgg
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public string Picture { get; private set; }
+        public string? Picture { get; private set; }
         public string PictureAlt { get; private set; }
         public string PictureTitle { get; private set; }
         public string Keywords { get; private set; }
@@ -43,7 +43,10 @@ namespace ShopManagement.Domain.ProductCategoryAgg
         {
             Name = name;
             Description = description;
-            Picture = picture;
+
+            if(!string.IsNullOrWhiteSpace(picture))
+                Picture = picture;
+
             PictureAlt = pictureAlt;
             PictureTitle = pictureTitle;
             Keywords = keywords;

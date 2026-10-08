@@ -8,18 +8,32 @@ namespace ShopManagement.Application.SlideApp
     {
         private readonly ISlideRepository _repository;
         private readonly ISlideQuery _query;
+        private readonly IFileUploader _fileUploader;
 
-        public SlideApplication(ISlideRepository repository, ISlideQuery query)
+        public SlideApplication(ISlideRepository repository, ISlideQuery query, IFileUploader fileUploader)
         {
             _repository = repository;
             _query = query;
+            _fileUploader = fileUploader;
         }
 
         public OperationResult Create(CreateSlide command)
         {
             var operation = new OperationResult();
-            var slide = new Slide(command.Picture, command.PictureAlt, command.PictureTitle,
-                command.Heading, command.Title, command.Text, command.BtnText, command.Link);
+
+            var pictureName = _fileUploader.Upload(command.Picture, "Slides");
+
+            var slide = new Slide
+            (
+                pictureName,
+                command.PictureAlt,
+                command.PictureTitle,
+                command.Heading,
+                command.Title,
+                command.Text,
+                command.BtnText,
+                command.Link
+            );
 
             _repository.Create(slide);
             _repository.SaveChanges();
@@ -34,10 +48,9 @@ namespace ShopManagement.Application.SlideApp
             if (sldie == null)
                 return operation.Failed(ApplicationMessages.RecordNotFound);
 
-            if (_repository.Exists(x => x.Picture == command.Picture && x.Id != command.Id))
-                return operation.Failed(ApplicationMessages.DuplicatedRecord);
+            var pictureName = _fileUploader.Upload(command.Picture, "Slides");
 
-            sldie.Edit(command.Picture, command.PictureAlt, command.PictureTitle,
+            sldie.Edit(pictureName, command.PictureAlt, command.PictureTitle,
                 command.Heading, command.Title, command.Text, command.BtnText, command.Link);
 
             _repository.SaveChanges();

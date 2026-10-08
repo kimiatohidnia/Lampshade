@@ -68,7 +68,7 @@
                                     <td>@item.Id</td>
 
                                     <td>
-                                            <img src="@Url.Content(item.Picture)" style="width: 70px; height: 70px" />
+                                            <img src="@Url.Content($"~/ProductPictures/{item.Picture}")" style="width: 70px; height: 70px" />
                                     </td>
 
                                     <td>@item.Name</td>

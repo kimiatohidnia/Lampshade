@@ -4,5 +4,6 @@ namespace ShopManagement.Domain.ProductCategoryAgg
 {
     public interface IProductCategoryRepository : IRepository<long, ProductCategory>
     {
+        string? GetSlugById(long id);
     }
 }

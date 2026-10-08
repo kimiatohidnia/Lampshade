@@ -21,10 +21,10 @@
                         "slidesToShow": 4,
                         "slidesToScroll": 1,
                         "arrows": true,
-                        "autoplay": false,
+                        "autoplay": true,
                         "autoplaySpeed": 5000,
                         "speed": 1000,
-                        "infinite": false,
+                        "infinite": true,
                         "rtl": true,
                         "prevArrow": {"buttonClass": "slick-prev", "iconClass": "ion-chevron-left" },
                         "nextArrow": {"buttonClass": "slick-next", "iconClass": "ion-chevron-right" }
@@ -52,7 +52,7 @@
                                         </div>
 
                                         <a href="single-product.html">
-                                            <img src="@Url.Content(product.Picture)" title="@product.PictureTitle" class="img-fluid" alt="@product.PictureAlt">
+                                            <img src="@Url.Content($"~/ProductPictures/{product.Picture}")" title="@product.PictureTitle" class="img-fluid" alt="@product.PictureAlt">
                                         </a>
 
                                         <div class="hover-icons">

@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlogManagement.Application\BlogManagement.Application.csproj" />
+    <ProjectReference Include="..\BlogManagement.Infrastructure.EFCore\BlogManagement.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
 </Project>

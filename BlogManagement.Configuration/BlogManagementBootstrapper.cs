@@ -5,6 +5,8 @@ using BlogManagement.Application;
 using BlogManagement.Domain.ArticleCategoryAgg;
 using BlogManagement.Infrastructure.EFCore.Repository;
 using Microsoft.EntityFrameworkCore;
+using BlogManagement.Application.Contract.ArticleApp;
+using BlogManagement.Domain.ArticleAgg;
 
 namespace ShopManagement.Configuration
 {
@@ -15,6 +17,10 @@ namespace ShopManagement.Configuration
             services.AddTransient<IArticleCategoryApplication, ArticleCategoryApplication>();
             services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
             services.AddTransient<IArticleCategoryQuery, ArticleCategoryQuery>();
+
+            services.AddTransient<IArticleApplication, ArticleApplication>();
+            services.AddTransient<IArticleRepository, ArticleRepository>();
+            services.AddTransient<IArticleQuery, ArticleQuery>();
 
             services.AddDbContext<BlogContext>(x => x.UseSqlServer(connectionString));
         }

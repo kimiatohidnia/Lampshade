@@ -31,9 +31,11 @@ namespace BlogManagement.Application
             var articleCategory = new ArticleCategory
                 (
                     command.Name,
-                    pictureName,
                     command.Description,
                     command.ShowOrder,
+                    pictureName,
+                    command.PictureAlt,
+                    command.PictureTitle,
                     slug,
                     command.Keywords,
                     command.MetaDescription,
@@ -65,9 +67,11 @@ namespace BlogManagement.Application
             articleCategory.Edit
                 (
                     command.Name,
-                    pictureName,
                     command.Description,
                     command.ShowOrder,
+                    pictureName,
+                    command.PictureAlt,
+                    command.PictureTitle,
                     slug,
                     command.Keywords,
                     command.MetaDescription,

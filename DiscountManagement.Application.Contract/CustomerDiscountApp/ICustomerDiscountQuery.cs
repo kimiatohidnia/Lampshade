@@ -2,7 +2,7 @@
 {
     public interface ICustomerDiscountQuery
     {
-        EditCustomerDiscount GetDetails(long id);
+        EditCustomerDiscount? GetDetails(long id);
         List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel  searchModel);
     }
 }

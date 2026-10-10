@@ -15,7 +15,7 @@ namespace DiscountManagement.Infrastructure.EFCore.Repository
             _shopContext = shopContext;
         }
 
-        public EditCustomerDiscount GetDetails(long id)
+        public EditCustomerDiscount? GetDetails(long id)
         {
             return _context.CustomerDiscounts.Select(x => new EditCustomerDiscount
                 {

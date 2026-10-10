@@ -4,5 +4,6 @@ namespace BlogManagement.Domain.ArticleCategoryAgg
 {
     public interface IArticleCategoryRepository : IRepository<long, ArticleCategory>
     {
+        string? GetSlugById(long id);
     }
 }

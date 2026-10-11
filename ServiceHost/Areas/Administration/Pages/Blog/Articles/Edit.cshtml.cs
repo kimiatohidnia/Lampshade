@@ -25,9 +25,9 @@ namespace ServiceHost.Areas.Administration.Pages.Blog.Articles
             Categories = new SelectList(_categoryApplication.GetCategories(), "Id", "Name");
         }
 
-        public IActionResult OnPost(EditArticle editCommand)
+        public IActionResult OnPost(EditArticle command)
         {
-            var result = _application.Edit(editCommand);
+            var result = _application.Edit(command);
             return RedirectToPage("./Index");
         }
     }

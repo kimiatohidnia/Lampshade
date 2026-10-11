@@ -4,5 +4,6 @@
     {
         EditArticleCategory? GetDetails(long id);
         List<ArticleCategoryViewModel> Search(ArticleCategorySearchModel searchModel);
+        List<ArticleCategoryViewModel> GetCategories();
     }
 }

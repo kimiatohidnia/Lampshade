@@ -82,6 +82,11 @@ namespace BlogManagement.Application
             return operation.Succeeded();
         }
 
+        public List<ArticleCategoryViewModel> GetCategories()
+        {
+            return _query.GetCategories();
+        }
+
         public EditArticleCategory GetDetails(long id)
         {
             return _query.GetDetails(id);

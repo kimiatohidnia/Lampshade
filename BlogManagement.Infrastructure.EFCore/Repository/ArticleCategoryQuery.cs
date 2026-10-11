@@ -47,7 +47,8 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
                 Picture = x.Picture,
                 Description = x.Description,
                 ShowOrder = x.ShowOrder,
-                CreationDate = x.CreationDate.ToFarsi()
+                CreationDate = x.CreationDate.ToFarsi(),
+                ArticlesCount = x.Articles.Count
             });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))

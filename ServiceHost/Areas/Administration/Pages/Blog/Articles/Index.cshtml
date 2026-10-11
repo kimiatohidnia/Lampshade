@@ -27,13 +27,13 @@
             <div class="panel-body">
                 <form class="form-inline" role="form" method="get">
                     <div class="form-group">
-                        <label class="sr-only" asp-for="@Model.SearchModel.Title"></label>
-                        <input class="form-control" asp-for="@Model.SearchModel.Title" placeholder="عنوان مقاله">
+                        <label class="sr-only" asp-for="SearchModel.Title"></label>
+                        <input class="form-control" asp-for="SearchModel.Title" placeholder="عنوان مقاله">
                     </div>
 
                     <div class="form-group">
-                        <label class="sr-only" asp-for="@Model.SearchModel.CategoryId"></label>
-                        <select class="form-control" asp-for="@Model.SearchModel.CategoryId" asp-items="@Model.ArticleCategoriesSelectList">
+                        <label class="sr-only" asp-for="SearchModel.CategoryId"></label>
+                        <select class="form-control" asp-for="SearchModel.CategoryId" asp-items="Model.ArticleCategoriesSelectList">
                             <option value="0">گروه مقاله...</option>
                         </select>
                     </div>
@@ -86,7 +86,7 @@
                                         <td>@item.PublishDate</td>
 
                                         <td>
-                                            <a class="btn btn-warning pull-right m-rl-5" asp-page="./Edit">
+                                            <a class="btn btn-warning pull-right m-rl-5" asp-page="./Edit" asp-route-id="@item.Id">
                                                 <i class="fa fa-edit"></i> ویرایش
                                             </a>
                                         </td>

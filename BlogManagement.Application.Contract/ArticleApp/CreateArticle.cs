@@ -7,10 +7,12 @@ namespace BlogManagement.Application.Contract.ArticleApp
     public class CreateArticle
     {
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(500, ErrorMessage = ValidationMessages.MaxLenght)]
         public string Title { get; set; }
 
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(2000, ErrorMessage = ValidationMessages.MaxLenght)]
         public string ShortDescription { get; set; }
 
 
@@ -23,10 +25,12 @@ namespace BlogManagement.Application.Contract.ArticleApp
 
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(500, ErrorMessage = ValidationMessages.MaxLenght)]
         public string PictureAlt { get; set; }
 
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(500, ErrorMessage = ValidationMessages.MaxLenght)]
         public string PictureTitle { get; set; }
 
 
@@ -35,17 +39,21 @@ namespace BlogManagement.Application.Contract.ArticleApp
 
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(600, ErrorMessage = ValidationMessages.MaxLenght)]
         public string Slug { get; set; }
 
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(100, ErrorMessage = ValidationMessages.MaxLenght)]
         public string Keywords { get; set; }
 
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
+        [MaxLength(2000, ErrorMessage = ValidationMessages.MaxLenght)]
         public string MetaDescription { get; set; }
 
 
+        [MaxLength(1000, ErrorMessage = ValidationMessages.MaxLenght)]
         public string? CanonicalAddress { get; set; }
 
 

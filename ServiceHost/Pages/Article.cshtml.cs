@@ -1,6 +1,10 @@
 using _01_LampshadeQuery.Contracts.Article;
 using _01_LampshadeQuery.Contracts.ArticleCategory;
+using CommentManagement.Application.Contract.CommentApp;
+using CommentManagement.Infrastructure.EFCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ServiceHost.Pages
 {
@@ -11,19 +15,32 @@ namespace ServiceHost.Pages
         public List<ArticleCategoryQueryModel> ArticleCategories;
 
         private readonly IArticleLampshadeQuery _articleQuery;
+        private readonly ICommentApplication _application;
         private readonly IArticleCategoryLampshadeQuery _articleCategoryQuery;
 
-        public ArticleModel(IArticleLampshadeQuery articleQuery, IArticleCategoryLampshadeQuery articleCategoryQuery)
+        public ArticleModel(IArticleLampshadeQuery articleQuery, IArticleCategoryLampshadeQuery articleCategoryQuery, ICommentApplication application)
         {
             _articleQuery = articleQuery;
             _articleCategoryQuery = articleCategoryQuery;
+            _application = application;
         }
 
         public void OnGet(string id)
         {
             Article = _articleQuery.GetArticleDetails(id);
+
             LatestArticles = _articleQuery.LatestArticles();
+
             ArticleCategories = _articleCategoryQuery.GetArticleCategories();
+        }
+
+        public IActionResult OnPost(AddComment command, string articleSlug)
+        {
+            command.Type = CommentType.Article;
+
+            var result = _application.Add(command);
+
+            return RedirectToPage("/Article", new { Id = articleSlug });
         }
     }
 }

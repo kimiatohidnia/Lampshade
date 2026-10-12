@@ -1,29 +1,31 @@
 ﻿using _0_Framework.Application;
-using ShopManagement.Application.Contract.CommentApp;
+using CommentManagement.Application.Contract.CommentApp;
 
-namespace ShopManagement.Infrastructure.EFCore.Repository
+namespace CommentManagement.Infrastructure.EFCore.Repository
 {
     public class CommentQuery : ICommentQuery
     {
-        private readonly ShopContext _context;
+        private readonly CommentContext _context;
 
-        public CommentQuery(ShopContext context)
+        public CommentQuery(CommentContext context)
         {
             _context = context;
         }
 
         public List<CommentViewModel> Search(CommentSearchModel searchModel)
         {
-            var query = _context.Comments.Select(x => new CommentViewModel
+            var query = _context.Comments
+                .Select(x => new CommentViewModel
             {
                 Id = x.Id,
                 Name = x.Name,
                 Email = x.Email,
+                Website = x.Website,
                 Message = x.Message,
-                ProductName = x.Product.Name,
-                ProductId = x.Product.Id,
                 IsCanceled = x.IsCanceled,
                 IsConfirmed = x.IsConfirmed,
+                OwnerRecordId = x.OwnerRecordId,
+                Type = x.Type,
                 CommentDate = x.CreationDate.ToFarsi()
             });
 

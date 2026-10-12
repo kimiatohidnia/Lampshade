@@ -1,4 +1,5 @@
 using _0_Framework.Application;
+using CommentManagement.Configuration;
 using DiscountManagement.Configuration;
 using InventoryManagement.Configuration;
 using ServiceHost;
@@ -15,6 +16,7 @@ ShopManagementBootstrapper.Configure(builder.Services, ConnectionString);
 DiscountManagementBootstrapper.Configure(builder.Services, ConnectionString);
 InventoryManagementBootstrapper.Configure(builder.Services, ConnectionString);
 BlogManagementBootstrapper.Configure(builder.Services, ConnectionString);
+CommentManagementBootstrapper.Configure(builder.Services, ConnectionString);
 
 builder.Services.AddTransient<IFileUploader, FileUploader>();
 

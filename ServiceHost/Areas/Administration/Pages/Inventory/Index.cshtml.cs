@@ -1,3 +1,4 @@
+using _0_Framework.Infrastructure;
 using InventoryManagement.Application.Contract.InventoryApp;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using ShopManagement.Application.Contract.ProductApp;
 namespace ServiceHost.Areas.Administration.Pages.Inventory
 {
     [Area("Administration")]
+    [Authorize(Roles = Roles.Admin)]
     public class IndexModel : PageModel
     {
         [TempData] public string Message { get; set; }

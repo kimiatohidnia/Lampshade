@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using _0_Framework.Infrastructure;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
@@ -12,6 +13,23 @@ namespace _0_Framework.Application
         public AuthHelper(IHttpContextAccessor contextAccessor)
         {
             _contextAccessor = contextAccessor;
+        }
+
+        public AuthViewModel CurrentAccountInfo()
+        {
+            var result = new AuthViewModel();
+
+            if (!IsAuthenticated())
+                return result;
+
+            var claims = _contextAccessor.HttpContext.User.Claims.ToList();
+            result.Id = long.Parse(claims.FirstOrDefault(x => x.Type == "AccountId").Value);
+            result.RoleId = long.Parse(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value);
+            result.Role = Roles.GetRoleById(result.RoleId);
+            result.Fullname = claims.FirstOrDefault(x => x.Type == ClaimTypes.Name).Value;
+            result.Username = claims.FirstOrDefault(x => x.Type == "Username").Value;
+
+            return result;
         }
 
         public string? CurrentAccountRole()
@@ -36,7 +54,7 @@ namespace _0_Framework.Application
                 new Claim("AccountId", account.Id.ToString()),
                 new Claim(ClaimTypes.Name, account.Fullname),
                 new Claim(ClaimTypes.Role, account.RoleId.ToString()),
-                new Claim("Username", account.Username)
+                new Claim("Username", account.Username) // Or use ClaimTypes.NameIdentifier
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

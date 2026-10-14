@@ -43,14 +43,20 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.AddAuthorizationBuilder()
-    .AddPolicy("AdminArea", builder => builder.RequireRole(new List<string> { Roles.Admin, Roles.ContentUploader }))
-    .AddPolicy("Shop", builder => builder.RequireRole(new List<string> { Roles.Admin }));
+    .AddPolicy("AdminArea",builder => builder.RequireRole(new List<string> { Roles.Admin, Roles.ContentUploader }))
+    .AddPolicy("Shop", builder => builder.RequireRole(new List<string> { Roles.Admin }))
+    .AddPolicy("Inventory", builder => builder.RequireRole(new List<string> { Roles.Admin }))
+    .AddPolicy("Discount", builder => builder.RequireRole(new List<string> { Roles.Admin }))
+    .AddPolicy("Account", builder => builder.RequireRole(new List<string> { Roles.Admin }));
 
 builder.Services.AddRazorPages()
     .AddRazorPagesOptions(options =>
     {
         options.Conventions.AuthorizeAreaFolder("Administration", "/", "AdminArea");
         options.Conventions.AuthorizeAreaFolder("Administration", "/Shop", "Shop");
+        options.Conventions.AuthorizeAreaFolder("Administration", "/Inventory", "Inventory");
+        options.Conventions.AuthorizeAreaFolder("Administration", "/Discounts", "Discount");
+        options.Conventions.AuthorizeAreaFolder("Administration", "/Accounts", "Account");
     });
 
 var app = builder.Build();

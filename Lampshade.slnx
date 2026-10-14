@@ -1,4 +1,16 @@
 <Solution>
+  <Folder Name="/AccountManagement/" />
+  <Folder Name="/AccountManagement/AccountManagement.Application/">
+    <Project Path="AccountManagement.Application.Contract/AccountManagement.Application.Contract.csproj" Id="1fe4868c-b471-4ed7-b172-737580e96933" />
+    <Project Path="AccountManagement.Application/AccountManagement.Application.csproj" Id="320759b0-db54-4b07-928d-db36b66227e7" />
+  </Folder>
+  <Folder Name="/AccountManagement/AccountManagement.Domain/">
+    <Project Path="AccountManagement.Domain/AccountManagement.Domain.csproj" Id="0b6644ac-0e50-42f9-8dd8-3fc5464309bd" />
+  </Folder>
+  <Folder Name="/AccountManagement/AccountManagement.Infrastructure/">
+    <Project Path="AccountManagement.Configuration/AccountManagement.Configuration.csproj" Id="6c80cc2d-fb1a-49e2-8511-bf28ea9657a1" />
+    <Project Path="AccountManagement.Infrastructure.EFCore/AccountManagement.Infrastructure.EFCore.csproj" Id="a35779ec-aec6-4a1e-9574-6699992735f5" />
+  </Folder>
   <Folder Name="/BlogManagement/" />
   <Folder Name="/BlogManagement/BlogManagement.Application/">
     <Project Path="BlogManagement.Application.Contract/BlogManagement.Application.Contract.csproj" Id="4d5e8bed-aed0-4de9-baf4-da5f20c35995" />

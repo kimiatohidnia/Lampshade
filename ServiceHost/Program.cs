@@ -6,6 +6,7 @@ using AccountManagement.Configuration;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using ServiceHost;
 using ShopManagement.Configuration;
+using _0_Framework.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,17 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         o.LoginPath = new PathString("/Account");
         o.LogoutPath = new PathString("/Account");
         o.AccessDeniedPath = new PathString("/AccessDenied");
+    });
+
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("AdminArea", builder => builder.RequireRole(new List<string> { Roles.Admin, Roles.ContentUploader }))
+    .AddPolicy("Shop", builder => builder.RequireRole(new List<string> { Roles.Admin }));
+
+builder.Services.AddRazorPages()
+    .AddRazorPagesOptions(options =>
+    {
+        options.Conventions.AuthorizeAreaFolder("Administration", "/", "AdminArea");
+        options.Conventions.AuthorizeAreaFolder("Administration", "/Shop", "Shop");
     });
 
 var app = builder.Build();

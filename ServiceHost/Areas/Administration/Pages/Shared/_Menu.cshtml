@@ -1,4 +1,6 @@
-﻿<div class="left side-menu">
+﻿@inject _0_Framework.Application.IAuthHelper AuthHelper;
+
+<div class="left side-menu">
     <div class="sidebar-inner slimscrollleft">
         <div class="user-details">
             <div class="pull-right">
@@ -71,39 +73,42 @@
                     </a>
                 </li>
 
-                <li class="has_sub">
-                    <a class="waves-effect">
-                        <i class="md md-mail"></i>
+                @if(AuthHelper.CurrentAccountRole() == "1")
+                {
+                    <li class="has_sub">
+                        <a class="waves-effect">
+                            <i class="md md-mail"></i>
 
-                        <span> فروشگاه </span>
+                            <span> فروشگاه </span>
 
-                        <span class="pull-right">
-                            <i class="md md-add"></i>
-                        </span>
-                    </a>
+                            <span class="pull-right">
+                                <i class="md md-add"></i>
+                            </span>
+                        </a>
 
-                    <ul class="list-unstyled">
-                        <li>
-                            <a asp-page="/Shop/Slides/Index">اسلایدر</a>
-                        </li>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a asp-page="/Shop/Slides/Index">اسلایدر</a>
+                            </li>
 
-                        <li>
-                            <a asp-page="/Shop/ProductCategories/Index">گروه محصولات</a>
-                        </li>
+                            <li>
+                                <a asp-page="/Shop/ProductCategories/Index">گروه محصولات</a>
+                            </li>
 
-                        <li>
-                            <a asp-page="/Shop/Product/Index">محصولات</a>
-                        </li>
+                            <li>
+                                <a asp-page="/Shop/Product/Index">محصولات</a>
+                            </li>
 
-                        <li>
-                            <a asp-page="/Shop/ProductPictures/Index">عکس محصولات</a>
-                        </li>
+                            <li>
+                                <a asp-page="/Shop/ProductPictures/Index">عکس محصولات</a>
+                            </li>
 
-                        <li>
-                            <a asp-page="/Shop/Comments/Index">کامنت‌ها</a>
-                        </li>
-                    </ul>
-                </li>
+                            <li>
+                                <a asp-page="/Shop/Comments/Index">کامنت‌ها</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
 
                 <li class="has_sub">
                     <a class="waves-effect">

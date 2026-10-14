@@ -1,0 +1,253 @@
+﻿@page
+@model ServiceHost.Pages.AccessDeniedModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عدم دسترسی | Access Denied</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Vazirmatn', Tahoma, sans-serif;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 24px;
+                background: radial-gradient(circle at 15% 20%, rgba(59, 130, 246, .12), transparent 30%), radial-gradient(circle at 85% 80%, rgba(99, 102, 241, .12), transparent 30%), #f5f7fc;
+                color: #172033;
+            }
+
+            .access-card {
+                width: 100%;
+                max-width: 510px;
+                padding: 52px 38px 38px;
+                text-align: center;
+                background: rgba(255, 255, 255, .94);
+                border: 1px solid #e9edf5;
+                border-radius: 28px;
+                box-shadow: 0 24px 70px rgba(25, 42, 75, .09);
+                animation: appear .6s ease-out;
+            }
+
+            .icon-wrapper {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 30px;
+                color: #e05252;
+                background: linear-gradient(145deg, #fff0f0, #ffe4e6);
+                box-shadow: 0 12px 28px rgba(224, 82, 82, .10);
+            }
+
+                .icon-wrapper svg {
+                    width: 48px;
+                    height: 48px;
+                }
+
+            .error-code {
+                display: inline-block;
+                padding: 6px 15px;
+                margin-bottom: 17px;
+                border-radius: 30px;
+                background: #fff0f0;
+                color: #d94343;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                direction: ltr;
+            }
+
+            h1 {
+                margin-bottom: 14px;
+                font-size: clamp(24px, 5vw, 31px);
+                font-weight: 800;
+                color: #172033;
+            }
+
+            .description {
+                max-width: 360px;
+                margin: 0 auto;
+                color: #758096;
+                font-size: 14px;
+                line-height: 2.2;
+            }
+
+            .divider {
+                width: 48px;
+                height: 4px;
+                margin: 27px auto;
+                border-radius: 10px;
+                background: linear-gradient(90deg, #647df5, #9b8afb);
+            }
+
+            .hint {
+                margin-bottom: 28px;
+                padding: 14px 16px;
+                border: 1px solid #edf0f7;
+                border-radius: 14px;
+                background: #f8faff;
+                color: #69758c;
+                font-size: 12px;
+                line-height: 2;
+            }
+
+            .actions {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .btn {
+                min-width: 155px;
+                padding: 13px 22px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                border-radius: 13px;
+                text-decoration: none;
+                font-family: inherit;
+                font-size: 13px;
+                font-weight: 700;
+                transition: .25s ease;
+            }
+
+            .btn-primary {
+                color: #fff;
+                background: linear-gradient(135deg, #526ff0, #7959e8);
+                box-shadow: 0 8px 20px rgba(91, 103, 235, .22);
+            }
+
+                .btn-primary:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 12px 25px rgba(91, 103, 235, .30);
+                }
+
+            .btn-secondary {
+                color: #566176;
+                background: #fff;
+                border: 1px solid #e4e8f0;
+            }
+
+                .btn-secondary:hover {
+                    background: #f5f7fc;
+                    border-color: #cdd5e5;
+                }
+
+            .footer {
+                margin-top: 32px;
+                color: #a1a9b8;
+                font-size: 11px;
+            }
+
+            @@keyframes appear {
+                from {
+                    opacity: 0;
+                    transform: translateY(18px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @@media (max-width: 480px) {
+                .access-card {
+                    padding: 38px 22px 28px;
+                    border-radius: 22px;
+                }
+
+                .icon-wrapper {
+                    width: 84px;
+                    height: 84px;
+                    border-radius: 25px;
+                }
+
+                .actions {
+                    flex-direction: column;
+                }
+
+                .btn {
+                    width: 100%;
+                }
+            }
+
+            @@media (prefers-reduced-motion: reduce) {
+                *, *::before, *::after {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+    <main class="access-card">
+
+        <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+                <rect x="4" y="10" width="16" height="11" rx="2.5" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                <path d="M12 14v3" />
+                <circle cx="12" cy="14" r=".5" fill="currentColor" />
+            </svg>
+        </div>
+
+        <span class="error-code">ERROR 403</span>
+
+        <h1>اجازه دسترسی ندارید!</h1>
+
+        <p class="description">
+            متأسفیم، شما مجوز لازم برای مشاهده این صفحه را ندارید.
+            ممکن است این بخش فقط برای کاربران یا نقش‌های خاصی قابل دسترسی باشد.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="hint">
+            اگر فکر می‌کنید این محدودیت اشتباه است،
+            با حساب کاربری مناسب وارد شوید یا با مدیر سیستم تماس بگیرید.
+        </div>
+
+        <div class="actions">
+            <a href="/" class="btn btn-primary">
+                <span>بازگشت به صفحه اصلی</span>
+                <span aria-hidden="true">←</span>
+            </a>
+
+            <a href="javascript:history.back()" class="btn btn-secondary">
+                بازگشت به صفحه قبل
+            </a>
+        </div>
+
+        <div class="footer">
+            دسترسی محدود شده است · Access Restricted
+        </div>
+
+    </main>
+</body>
+</html>
